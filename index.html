@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decodificador de texto</title>
+    <link rel="icon" href="./img/icone_titulo.svg" type="image/svg">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    
+    <header>
+        <div class="icone">
+            <h1 class="titulo-principal">
+                <img src="./img/icone_conteudo.png" alt="Ícone da pagina" id="icone">
+            </h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="conteiner">
+            <section class="principal">
+                <form action="">
+                    <div class="entrada">
+                        <input type="text" placeholder="Digite seu texto aqui" class="texto">
+                    </div>
+
+                    <div class="opcoes">
+                        <img src="./img/bi_exclamation-circle-fill.png" alt="ícone indicando uma informação">
+                        <p>Apenas letras minúsculas e sem acento.</p>
+                        <input type="button" value="Criptografar" class="btn btn-principal">
+                        <input type="button" value="Descriptografar" class="btn btn-segundario">
+                    </div>
+                </form>
+            </section>
+
+            <section class="segundario">
+                <div class="resposta">
+                    <img src="./img/busca_mensagem.svg" alt="Imagem buscando mensagem">
+                    <p class="titulo-resposta">Nenhuma mensagem encontrada</p> <!-- tornar negrito com css -->
+                    <p>Digite um texto que você deseja criptografar ou descriptografar</p>
+                </div>
+            </section>
+        </div>
+    </main>
 </body>
+
 </html>

@@ -1,0 +1,119 @@
+/* Geral */
+:root {
+    --dark-blue-100: #609ED4;
+    --dark-blue-200: #356EA9;
+    --dark-blue-300: #0A3871;
+    --dark-blue-400: #072B61;
+    --dark-blue-500: #052051;
+
+    --light-blue-100: #F3F5FC;
+    --light-blue-200: #EFF1FA;
+    --light-blue-300: #E9ECF8;
+    --light-blue-400: #AAB2D5;
+    --light-blue-500: #757FB2;
+
+    --light-gray: #D8DFE8;
+    
+    --gray-100: #CED4DA;
+    --gray-200: #ADB5BD;
+    --gray-300: #868E96;
+    --gray-400: #495057;
+    --gray-500: #343A40;
+}
+
+body {
+    background-color: var(--light-blue-100);
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-400);
+}
+
+/* Header */
+
+.icone {
+    display: flex;
+    flex-direction: column;
+    height: 48px;
+    margin: 40px 0;
+}
+
+/* Main */
+
+.principal {
+    position: absolute;
+    left: 120px;
+    width: 680px;
+    height: 784px;
+    /* margin: 0 auto; */
+}
+
+.entrada {
+    height: 680px;
+}
+
+.texto {
+    width: 680px;
+    height: 48px;
+    border: none;
+    font-size: 32px;
+    background-color: var(--light-blue-100);
+}
+
+.segundario {
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    width: 330px;
+    padding: 0 20px;
+    height: 944px;
+    margin-right: 40px;
+    background-color: white;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+}
+
+.resposta {
+    text-align: center;
+    margin: 50% 0;
+    line-height: 150%;
+}
+
+.titulo-resposta {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 120%;
+    color: var(--gray-500);
+    margin-bottom: 16px;
+}
+
+.opcoes img {
+    float: left;
+}
+
+.opcoes > p {
+    margin-bottom: 1em;
+    font-size: 12px;
+    line-height: 150%;
+    opacity: 0.8;
+}
+
+.btn {
+    width: 328px;
+    height: 67px;
+    padding: 24px;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.btn-principal {
+    color: white;
+    background-color: var(--dark-blue-300);
+    border: none;
+}
+
+.btn-segundario {
+    color: var(--dark-blue-300);
+    background-color: var(--light-gray);
+    border: 1px solid var(--dark-blue-300);
+}
+
+/* Footer */
