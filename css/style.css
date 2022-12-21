@@ -13,7 +13,7 @@
     --light-blue-500: #757FB2;
 
     --light-gray: #D8DFE8;
-    
+
     --gray-100: #CED4DA;
     --gray-200: #ADB5BD;
     --gray-300: #868E96;
@@ -43,7 +43,6 @@ body {
     left: 120px;
     width: 680px;
     height: 784px;
-    /* margin: 0 auto; */
 }
 
 .entrada {
@@ -51,11 +50,12 @@ body {
 }
 
 .texto {
-    width: 680px;
-    height: 48px;
+    width: 100%;
+    height: 90%;
     border: none;
     font-size: 32px;
     background-color: var(--light-blue-100);
+    resize: none;
 }
 
 .segundario {
@@ -75,6 +75,7 @@ body {
     text-align: center;
     margin: 50% 0;
     line-height: 150%;
+    visibility: inherit;
 }
 
 .titulo-resposta {
@@ -89,7 +90,7 @@ body {
     float: left;
 }
 
-.opcoes > p {
+.opcoes>p {
     margin-bottom: 1em;
     font-size: 12px;
     line-height: 150%;
