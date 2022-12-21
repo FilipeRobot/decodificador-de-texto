@@ -31,27 +31,36 @@
                 <form action="">
                     <div class="entrada">
                         <textarea name="texto" id="texto" cols="30" rows="10" placeholder="Digite seu texto aqui"
-                            class="texto" autofocus required></textarea>
+                            class="texto" required></textarea>
                     </div>
 
                     <div class="opcoes">
                         <img src="./img/bi_exclamation-circle-fill.png" alt="ícone indicando uma informação">
                         <p>Apenas letras minúsculas e sem acento.</p>
-                        <input type="submit" value="Criptografar" class="btn btn-principal">
-                        <input type="submit" value="Descriptografar" class="btn btn-segundario">
+                        <input type="button" value="Criptografar" class="btn btn-principal" id="btn-criptografar">
+                        <input type="button" value="Descriptografar" class="btn btn-segundario"
+                            id="btn-descriptografar">
                     </div>
                 </form>
             </section>
 
             <section class="segundario">
                 <div class="resposta">
-                    <img src="./img/busca_mensagem.svg" alt="Imagem buscando mensagem">
-                    <p class="titulo-resposta">Nenhuma mensagem encontrada</p>
-                    <p>Digite um texto que você deseja criptografar ou descriptografar</p>
+                    <div id="padrao">
+                        <img src="./img/busca_mensagem.svg" alt="Imagem buscando mensagem">
+                        <p class="titulo-resposta">Nenhuma mensagem encontrada</p>
+                        <p>Digite um texto que você deseja criptografar ou descriptografar</p>
+                    </div>
+                    <div id="texto-criptografado"></div>
                 </div>
             </section>
         </div>
     </main>
+    <footer>
+        <!-- Construir um rodapé -->
+    </footer>
+
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
