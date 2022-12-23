@@ -80,7 +80,7 @@ function mostrarResultado(texto) {
 
 	const textoCriptografado = document.querySelector("#texto-criptografado");
 
-	var resposta = "<p>" + texto + "</p>";
+	var resposta = `<p id="texto-resposta">${texto}</p>`;
 
 	textoCriptografado.innerHTML = resposta;
 
@@ -94,7 +94,7 @@ function mostrarResultado(texto) {
 }
 
 async function copiar(params) {
-	let texto = params.path[1].innerText;
+	let texto = document.querySelector("#texto-resposta").textContent;
 	await navigator.clipboard.writeText(texto);
 	print("Texto copiado com sucesso!");
 }
