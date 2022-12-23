@@ -121,3 +121,18 @@ body {
 }
 
 /* Footer */
+
+/* Adaptando para mobile */
+
+@media screen and (max-width: 768px) {
+    .principal, .segundario {
+        position: static;
+        width: fit-content;
+        height: fit-content;
+        margin: 20px 5px 0 5px;
+    }
+
+    .btn {
+        margin: 5px 20px;
+    }
+}
