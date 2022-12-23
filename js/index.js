@@ -85,9 +85,18 @@ function mostrarResultado(texto) {
 	textoCriptografado.innerHTML = resposta;
 
 	textoCriptografado.innerHTML +=
-		'<button class="btn btn-segundario">Copiar</button>';
+		'<input type="button" value="Copiar" class="btn btn-segundario" id="btn-copiar">';
 
 	textoCriptografado.style.display = "block";
+
+	const btnCopiar = document.querySelector("#btn-copiar");
+	btnCopiar.onclick = copiar;
+}
+
+async function copiar(params) {
+	let texto = params.path[1].innerText;
+	await navigator.clipboard.writeText(texto);
+	print("Texto copiado com sucesso!");
 }
 
 const btnCriptografar = document.querySelector("#btn-criptografar");
