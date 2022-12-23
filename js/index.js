@@ -97,6 +97,9 @@ async function copiar(params) {
 	let texto = document.querySelector("#texto-resposta").textContent;
 	await navigator.clipboard.writeText(texto);
 	print("Texto copiado com sucesso!");
+
+	document.querySelector("#texto-criptografado").style.display = "none";
+	document.querySelector("#padrao").style.display = "block";
 }
 
 const btnCriptografar = document.querySelector("#btn-criptografar");
