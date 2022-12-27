@@ -42,7 +42,6 @@ body {
     position: absolute;
     left: 120px;
     width: 680px;
-    height: 784px;
 }
 
 .entrada {
@@ -72,7 +71,6 @@ body {
 
 .resposta {
     text-align: center;
-    /* margin: 50% 0; */
     line-height: 150%;
     visibility: inherit;
 }
@@ -122,6 +120,34 @@ body {
 
 /* Footer */
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+    border-top: 1px solid var(--gray-500);
+    box-shadow: 0 -2px 5px var(--gray-400);
+    background-color: white;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--dark-blue-300);
+}
+
+.container-rodape {
+    margin: 10px 0;
+}
+
+.contato {
+    list-style: none;
+}
+
+.contato li {
+    display: inline;
+}
+
 /* Adaptando para mobile */
 
 @media screen and (max-width: 768px) {
@@ -134,5 +160,11 @@ body {
 
     .btn {
         margin: 5px 20px;
+    }
+
+    .footer {
+        position: static;
+        margin-top: 20px;
+        height: 50px;
     }
 }
