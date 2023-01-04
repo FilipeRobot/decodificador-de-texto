@@ -41,8 +41,8 @@ https://trello.com/b/EmUFmjCv/decodificador-de-texto-alura-challenges-oracle-one
 
 ### Projeto rodando
 <h3 align="center">
-    <img src="./img/readme/Desktop.jpg" alt="Badge Exclusiva do Desafio" width="300" height="200" style="vertical-align: top;">
-    <img src="./img/readme/Mobile.jpg" alt="Badge Exclusiva do Desafio" width="200" height="300">
+    <img src="./img/readme/Desktop.jpg" alt="Badge Exclusiva do Desafio" width="450" height="250" style="vertical-align: top;">
+    <img src="./img/readme/Mobile.jpg" alt="Badge Exclusiva do Desafio" width="250" height="450">
 </h3>
 
 #  🔗 Challenge ONE Sprint 01:
