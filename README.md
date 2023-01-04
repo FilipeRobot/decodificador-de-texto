@@ -14,6 +14,11 @@ Para a criptografia foi usado a lista de chaves abaixo 👇
 
 Dessa forma a palavra "gato" se torna "gaitober" quando criptografada.
 
+## 🏆 Badge Exclusiva do Desafio
+
+<h3 align="center">
+    <img src="./img/readme/Badge do Desafio.png" alt="Badge Exclusiva do Desafio" width="200" height="180">
+</h3>
 
 ##  🚀 Tecnologias Usadas
 
@@ -33,6 +38,12 @@ https://www.figma.com/file/tvFEYhVfZTjdJ5P24RGV21/Alura-Challenge---Desafio-1---
 https://trello.com/b/EmUFmjCv/decodificador-de-texto-alura-challenges-oracle-one
 ```
 <br>
+
+### Projeto rodando
+<h3 align="center">
+    <img src="./img/readme/Desktop.jpg" alt="Badge Exclusiva do Desafio" width="300" height="200" style="vertical-align: top;">
+    <img src="./img/readme/Mobile.jpg" alt="Badge Exclusiva do Desafio" width="200" height="300">
+</h3>
 
 #  🔗 Challenge ONE Sprint 01:
 Construa um decodificador de texto com Javascript
@@ -54,10 +65,3 @@ https://www.alura.com.br/challenges/challenge-one-logica/sprint01-construa-decod
     </tr>
 </table>
 
-<!-- ### 🏆 Badge Exclusiva do Desafio
-
-<h3 align="center">
-    <img src="#" alt="Badge Exclusiva do Desafio" width="200" height="180">
-</h3> 
-
--->
