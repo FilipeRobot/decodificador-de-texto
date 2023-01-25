@@ -113,11 +113,31 @@ body {
     float: left;
 }
 
-.opcoes>p {
+.opcoes p {
     margin-bottom: 1em;
     font-size: 12px;
     line-height: 150%;
     opacity: 0.8;
+}
+
+.opcoes .aviso::before {
+    content: '[\274C';
+}
+
+.opcoes .aviso {
+    display: none;
+}
+
+.opcoes .aviso.active {
+    font-size: 1rem;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    display: block;
+}
+
+.opcoes .aviso::after {
+    content: ']';
 }
 
 .btn {
