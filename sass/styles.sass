@@ -1,0 +1,172 @@
+@use 'variables'
+@use 'mixins'
+
+*
+    font-family: variables.$font-family
+    color: variables.$text-color
+
+body
+    background-color: variables.$bg-color
+
+    .mostrar
+        display: block
+
+    .ocultar
+        display: none
+
+::-webkit-scrollbar
+    margin: 0 5px
+    width: 6px
+    height: 5px
+
+    &-thumb
+        background: variables.$light-blue-100
+        border: 1.8px solid variables.$dark-blue-100
+        border-radius: 100px
+
+        &:hover
+            background: variables.$light-blue-300
+
+    &-track
+        background: variables.$gray-300
+        border-radius: 100px
+        margin: 2px 0
+
+.header
+    @include mixins.container()
+
+.main
+    @include mixins.container()
+    padding-top: 0
+    display: flex
+    justify-content: space-between
+    position: relative
+
+    &__principal
+        width: 680px
+        margin-right: 15px
+    
+    &__formulario
+        display: flex
+        flex-direction: column
+    
+    &__entrada
+        height: 420px
+
+        &__texto
+            width: 90%
+            height: 90%
+            border: none
+            font-size: 2rem
+            background-color: variables.$bg-color
+            resize: none
+
+            &:focus
+                outline-color: variables.$dark-blue-200
+    
+    &__informacoes
+        &__img
+            float: left
+        
+        &__texto
+            margin-bottom: 1rem
+            font-size: .7rem
+            line-height: 150%
+            opacity: .8
+
+        &__avisos
+            display: none
+            margin-bottom: 1rem
+            font-family: variables.$font-family-code
+            font-size: 1.2rem
+            text-align: center
+            color: red
+            font-weight: bold
+
+            &::before
+                content: '\274C Erro: '
+    
+    &__botoes
+        display: flex
+        justify-content: space-between
+        padding: 0 5px
+    
+    .btn
+        width: 328px
+        height: 67px
+        padding: 24px
+        border-radius: 24px
+        cursor: pointer
+
+        &:focus
+            outline: none
+    
+    &__btn
+        &__principal
+            @include mixins.btnPrimario()
+        
+        &__segundario
+            @include mixins.btnSegundario()
+        
+        &__lateral
+            @include mixins.btnSegundario()
+
+    &__lateral
+        width: 330px
+        padding: 20px
+        height: 100%
+        background-color: white
+        box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08)
+        border-radius: 32px
+        margin: 0 auto
+        transform: translateY(-30px)
+
+    &__resposta
+        text-align: center
+        line-height: 150%
+
+        &__padrao
+            display: flex
+            flex-direction: column
+            height: 650px
+
+            &__img
+                margin-bottom: 20px
+            
+            &__titulo
+                font-weight: bold
+                font-size: 24px
+                line-height: 120%
+                color: variables.$gray-500
+                margin-bottom: 16px
+        
+        &__resultado
+            margin: 5% 0 10% 0
+        
+        &__texto
+            margin-bottom: 1rem
+
+.footer
+    @include mixins.container()
+    margin-top: 2vh
+    padding: 5px 0
+    text-align: center
+    border-top: 1px solid variables.$gray-500
+    box-shadow: 0 -2px 5px variables.$gray-400
+    background-color: white
+    border-radius: 20px 20px 0 0
+    font-size: 1.5rem
+
+    a
+        text-decoration: none
+        color: variables.$dark-blue-300
+    
+    &__contatos li
+        display: inline
+        margin-right: 20px
+    
+    .fa
+        &-github
+            color: black
+        &-linkedin
+            color: #0A66C2

@@ -1,65 +1,101 @@
-function print(params) {
-	alert(params);
-}
-
+/**
+ * Criptografa texto informado
+ */
 function criptografar() {
-	var texto = document.querySelector("#texto");
+	let entradaTexto = getEntradaTexto();
 
-	if (validarTexto(texto, texto.value.trim())) {
-		var expressao = /a|e|i|o|u/gi;
+	if (entradaTexto) {
+		let entradaTextoValue = entradaTexto.value;
+		let expressao = /a|e|i|o|u/gi;
 
-		var textoCriptografado = texto.value.trim().replace(expressao, (match) => {
-			switch (match) {
-				case "a":
-					match = "ai";
-					break;
-				case "e":
-					match = "enter";
-					break;
-				case "i":
-					match = "imes";
-					break;
-				case "o":
-					match = "ober";
-					break;
-				case "u":
-					match = "ufat";
-					break;
-			}
+		let textoCriptografado = entradaTextoValue
+			.trim()
+			.replace(expressao, (match) => {
+				switch (match) {
+					case 'a':
+						match = 'ai';
+						break;
+					case 'e':
+						match = 'enter';
+						break;
+					case 'i':
+						match = 'imes';
+						break;
+					case 'o':
+						match = 'ober';
+						break;
+					case 'u':
+						match = 'ufat';
+						break;
+				}
 
-			return match;
-		});
+				return match;
+			});
 
 		mostrarResultado(textoCriptografado);
 	} else {
-		document.querySelector("#texto-criptografado").style.display = "none";
-		document.querySelector("#texto-criptografado").innerHTML = '';
-		document.querySelector("#padrao").style.display = "block";
+		limparResposta();
 	}
 }
 
+/**
+ * Descriptografa texto informado
+ */
 function descriptografar() {
-	var texto = document.querySelector("#texto");
+	let entradaTexto = getEntradaTexto();
+
+	if (entradaTexto) {
+		let entradaTextoValue = entradaTexto.value;
+		var expressao = /ai|enter|imes|ober|ufat/gi;
+
+		var textoDescriptografado = entradaTextoValue
+			.trim()
+			.replace(expressao, (match) => {
+				switch (match) {
+					case 'ai':
+						match = 'a';
+						break;
+					case 'enter':
+						match = 'e';
+						break;
+					case 'imes':
+						match = 'i';
+						break;
+					case 'ober':
+						match = 'o';
+						break;
+					case 'ufat':
+						match = 'u';
+						break;
+				}
+
+				return match;
+			});
+
+		mostrarResultado(textoDescriptografado);
+	}
+
+	var texto = document.querySelector('#texto');
 
 	if (validarTexto(texto, texto.value.trim())) {
 		var expressao = /ai|enter|imes|ober|ufat/gi;
 
 		var textoDescriptografado = texto.value.replace(expressao, (match) => {
 			switch (match) {
-				case "ai":
-					match = "a";
+				case 'ai':
+					match = 'a';
 					break;
-				case "enter":
-					match = "e";
+				case 'enter':
+					match = 'e';
 					break;
-				case "imes":
-					match = "i";
+				case 'imes':
+					match = 'i';
 					break;
-				case "ober":
-					match = "o";
+				case 'ober':
+					match = 'o';
 					break;
-				case "ufat":
-					match = "u";
+				case 'ufat':
+					match = 'u';
 					break;
 			}
 
@@ -68,82 +104,143 @@ function descriptografar() {
 
 		mostrarResultado(textoDescriptografado);
 	} else {
-		document.querySelector("#texto-criptografado").style.display = "none";
-		document.querySelector("#texto-criptografado").innerHTML = '';
-		document.querySelector("#padrao").style.display = "block";
+		document.querySelector('#texto-criptografado').style.display = 'none';
+		document.querySelector('#texto-criptografado').innerHTML = '';
+		document.querySelector('#padrao').style.display = 'block';
 	}
 }
 
+/**
+ *
+ * @param {*} texto Texto que será mostrado para o usuário, seja ele criptografado ou descriptografado
+ */
 function mostrarResultado(texto) {
-	const padrao = document.querySelector("#padrao");
-	padrao.style.display = "none";
+	const respostaPadrao = getElementById('resposta-padrao');
+	const respostaResultado = getElementById('resposta-resultado');
+	const respostaTexto = getElementById('resposta-texto');
 
-	const textoCriptografado = document.querySelector("#texto-criptografado");
+	respostaPadrao.classList.add('ocultar');
+	respostaResultado.classList.remove('ocultar');
 
-	var resposta = `<p id="texto-resposta">${texto}</p>`;
+	respostaTexto.textContent = texto;
 
-	textoCriptografado.innerHTML = resposta;
+	const btnCopiar = getElementById('btn-copiar');
 
-	textoCriptografado.innerHTML +=
-		'<input type="button" value="Copiar" class="btn btn-principal" id="btn-copiar">';
-
-	textoCriptografado.style.display = "block";
-
-	const btnCopiar = document.querySelector("#btn-copiar");
-	btnCopiar.onclick = copiar;
+	btnCopiar.addEventListener('click', copiar);
 }
 
-async function copiar() {
-	let texto = document.querySelector("#texto-resposta").textContent;
-	await navigator.clipboard.writeText(texto);
-	print("Texto copiado com sucesso!");
-
-	document.querySelector("#texto-criptografado").style.display = "none";
-	document.querySelector("#texto-criptografado").innerHTML = '';
-	document.querySelector("#padrao").style.display = "block";
-}
-
+/**
+ *
+ * @param {*} input Elemento html que será validado
+ * @param {*} value Valor, texto que será validado
+ * @returns FALSO caso o texto seja inválido, VERDADEIRO caso o texto seja valido
+ */
 function validarTexto(input, value) {
 	if (value == '') {
-		inserirAviso("Por favor, informe algum texto");
+		inserirAviso('Por favor, informe algum texto');
 		input.focus();
 		return false;
 	}
 	if (/[A-Z-À-Ú-à-ú]|[0-9]|[;´`^~@!#$%^&*()/\\-_\[\]\{\}ºª+§]/.test(value)) {
-		inserirAviso("Por favor, informe um texto válido");
+		inserirAviso('Por favor, informe um texto válido');
 		input.focus();
-        return false; //caso em que o texto é invalido
+		return false; //caso em que o texto é invalido
 	}
 	limparAviso();
-    return true; //caso em que o texto é valido
+	return true; //caso em que o texto é valido
 }
 
+/**
+ * Copia o texto da resposta
+ */
+async function copiar() {
+	let respostaTexto = getElementById('resposta-texto').textContent;
+
+	await navigator.clipboard.writeText(respostaTexto);
+	print('Texto copiado com sucesso!');
+
+	limparResposta();
+	limparEntrada();
+}
+
+/**
+ * Reseta a tela de respostas
+ */
+function limparResposta() {
+	const respostaPadrao = getElementById('resposta-padrao');
+	const respostaResultado = getElementById('resposta-resultado');
+	const respostaTexto = getElementById('resposta-texto');
+	const btnCopiar = getElementById('btn-copiar');
+
+	respostaTexto.textContent = '';
+
+	btnCopiar.removeEventListener('click', copiar);
+
+	respostaResultado.classList.add('ocultar');
+	respostaPadrao.classList.remove('ocultar');
+}
+
+/**
+ * Apaga os avisos da tela
+ */
+function limparAviso() {
+	const aviso = getElementById('informacoes-aviso');
+	aviso.textContent = '';
+	aviso.classList.remove('mostrar');
+}
+
+/**
+ * Resetar a entrada
+ */
+function limparEntrada() {
+	const entradaTexto = getElementById('entrada-texto');
+	entradaTexto.value = '';
+	entradaTexto.focus();
+}
+
+/**
+ *
+ * @param {*} msg Mensagem que será mostrada no aviso
+ */
 function inserirAviso(msg) {
-	const aviso = document.getElementById("aviso");
+	const aviso = getElementById('informacoes-aviso');
 	if (msg) {
 		aviso.textContent = msg;
-		aviso.classList.add('active');
+		aviso.classList.add('mostrar');
 	}
 }
 
-function limparAviso() {
-	const aviso = document.getElementById("aviso");
-	aviso.classList.remove("active");
+
+/**
+ *
+ * @returns retorna o elemento html de entrada de texto
+ */
+function getEntradaTexto() {
+	const entradaTexto = getElementById('entrada-texto');
+
+	if (validarTexto(entradaTexto, entradaTexto.value)) {
+		return entradaTexto;
+	}
 }
 
-const btnCriptografar = document.querySelector("#btn-criptografar");
+function getElementById(id) {
+	return document.getElementById(id);
+}
 
-const btnDescriptografar = document.querySelector("#btn-descriptografar");
+function print(params) {
+	alert(params);
+	//console.log(params);
+}
 
-const aviso = document.getElementById("aviso");
+const btnCriptografar = getElementById('btn-criptografar'); //document.querySelector('#btn-criptografar');
 
-btnCriptografar.onclick = criptografar;
+const btnDescriptografar = getElementById('btn-descriptografar'); //document.querySelector('#btn-descriptografar');
 
-btnDescriptografar.onclick = descriptografar;
+const informacoesAviso = getElementById('informacoes-aviso');
 
-aviso.addEventListener("click", limparAviso);
-aviso.addEventListener("click", () => {
-	var texto = document.querySelector("#texto");
-	texto.value = "";
-	texto.focus();
-})
+btnCriptografar.addEventListener('click', criptografar);
+
+btnDescriptografar.addEventListener('click', descriptografar);
+
+informacoesAviso.addEventListener('click', limparAviso);
+informacoesAviso.addEventListener('click', limparResposta);

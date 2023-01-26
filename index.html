@@ -7,69 +7,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decodificador de texto</title>
     <link rel="icon" href="./img/icone_titulo.svg" type="image/svg">
+
+    <!-- Reset css e css do projeto -->
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/styles.css">
 
-
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
 
+    <!-- Conexão com Font Awesome -->
     <script src="https://kit.fontawesome.com/14ba718b2e.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-        <div class="icone">
-            <h1 class="titulo-principal">
-                <img src="./img/icone_conteudo.png" alt="Ícone da pagina" id="icone">
-            </h1>
-        </div>
+    <header class="header">
+        <h1 class="header__titulo">
+            <img src="./img/icone_conteudo.png" alt="Ícone da pagina" id="icone" class="header__img">
+        </h1>
     </header>
 
-    <main>
-        <div class="conteiner">
-            <section class="principal">
-                <form action="">
-                    <div class="entrada">
-                        <textarea name="texto" id="texto" cols="30" rows="10" placeholder="Digite seu texto aqui"
-                            class="texto" required></textarea>
-                    </div>
+    <main class="main">
+        <section class="main__principal">
+            <form class="main__formulario">
+                <fieldset class="main__entrada">
+                    <textarea name="texto" id="entrada-texto" cols="30" rows="10" placeholder="Digite seu texto aqui"
+                        class="main__entrada__texto" required></textarea>
+                </fieldset>
 
-                    <div class="opcoes">
-                        <img src="./img/bi_exclamation-circle-fill.png" alt="ícone indicando uma informação">
-                        <p>Apenas letras minúsculas e sem acento.</p>
-                        <p class="aviso" id="aviso"></p>
-                        <input type="button" value="Criptografar" class="btn btn-principal" id="btn-criptografar">
-                        <input type="button" value="Descriptografar" class="btn btn-segundario"
-                            id="btn-descriptografar">
-                    </div>
-                </form>
-            </section>
+                <fieldset class="main__informacoes">
+                    <img src="./img/bi_exclamation-circle-fill.png" alt="ícone indicando uma informação"
+                        class="main__informacoes__img">
+                    <p class="main__informacoes__texto"> Apenas letras minúsculas e sem acento.</p>
+                    <!-- para mostrar os avisos precisa adicionar a classe mostrar -->
+                    <p class="main__informacoes__avisos" id="informacoes-aviso"></p>
+                </fieldset>
 
-            <section class="segundario">
-                <div class="resposta">
-                    <div id="padrao">
-                        <img src="./img/busca_mensagem.svg" alt="Imagem buscando mensagem">
-                        <p class="titulo-resposta">Nenhuma mensagem encontrada</p>
-                        <p>Digite um texto que você deseja criptografar ou descriptografar</p>
-                    </div>
-                    <div id="texto-criptografado"></div>
+                <fieldset class="main__botoes">
+                    <input type="button" value="Criptografar" class="btn main__btn__principal" id="btn-criptografar">
+                    <input type="button" value="Descriptografar" class="btn main__btn__segundario"
+                        id="btn-descriptografar">
+                </fieldset>
+            </form>
+        </section>
+
+        <aside class="main__lateral">
+            <section class="main__resposta">
+                <!-- Para esconder alguma das divs basta adicionar a classe ocultar -->
+                <div class="main__resposta__padrao" id="resposta-padrao">
+                    <img src="./img/busca_mensagem.svg" alt="Imagem buscando mensagem"
+                        class="main__resposta__padrao__img">
+
+                    <p class="main__resposta__padrao__titulo">Nenhuma mensagem encontrada</p>
+                    <p class="main__resposta__padrao__texto">Digite um texto que você deseja criptografar ou
+                        descriptografar</p>
+                </div>
+                <div id="resposta-resultado" class="main__resposta__resultado ocultar">
+                    <p id="resposta-texto" class="main__resposta__texto"></p>
+                    <button id="btn-copiar" class="btn main__btn__lateral">Copiar</button>
                 </div>
             </section>
-        </div>
+        </aside>
     </main>
+
     <footer class="footer">
-        <div class="container-rodape">
-            <p>Criado por <a href="https://github.com/FilipeRobot"><i class="fa-brands fa-github"></i> FilipeRobot(GitHub)</a> - 2022</p>
-            <ul class="contato">
-                <li><a href="https://github.com/FilipeRobot/decodificador-de-texto"><i class="fa-solid fa-folder"></i> Repositório</a></li>
-                <li><a href="https://www.linkedin.com/in/filipe-lemos-programador/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
-            </ul>
-        </div>
+        <p class="footer__texto">
+            Criado por <a href="https://github.com/FilipeRobot"><i class="fa-brands fa-github"></i>
+                FilipeRobot(GitHub)</a> - 2023
+        </p>
+        <ul class="footer__contatos">
+            <li class="footer__contatos__repositorio">
+                <a href="https://github.com/FilipeRobot/decodificador-de-texto"><i class="fa-solid fa-folder"></i>
+                    Repositório</a>
+            </li>
+            <li class="footer__contatos__linkedin">
+                <a href="https://www.linkedin.com/in/filipe-lemos-programador/" target="_blank"
+                    rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> Linkedin</a>
+            </li>
+        </ul>
     </footer>
 
     <script src="./js/index.js"></script>
+
 </body>
 
 </html>
