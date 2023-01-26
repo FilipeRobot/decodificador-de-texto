@@ -27,6 +27,7 @@ Dessa forma a palavra "gato" se torna "gaitober" quando criptografada.
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JAVA-SCRIPT" width="200" height="200" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" width="200" height="200" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" width="200" height="200" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="CSS" width="200" height="200" />
 </p>
 
 ### Modelo Figma - Decodificador de Texto - Alura
@@ -36,6 +37,16 @@ https://www.figma.com/file/tvFEYhVfZTjdJ5P24RGV21/Alura-Challenge---Desafio-1---
 ### TRELLO - Decodificador de Texto - Alura
 ```bash
 https://trello.com/b/EmUFmjCv/decodificador-de-texto-alura-challenges-oracle-one
+```
+### SASS - Compilador CSS 
+```bash
+https://sass-lang.com/
+
+Passo 1: Instalar sass, caso não tenha
+    npm install -g sass
+
+Passo 2: Executar compilador sass
+    sass --watch sass/styles.sass:css/styles.css
 ```
 <br>
 
