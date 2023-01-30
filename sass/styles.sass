@@ -35,6 +35,12 @@ body
 .header
     @include mixins.container()
 
+    @include mixins.tablet()
+        @include mixins.container-tablet()
+
+    @include mixins.mobile()
+        @include mixins.container-mobile()
+
 .main
     @include mixins.container()
     padding-top: 0
@@ -42,9 +48,20 @@ body
     justify-content: space-between
     position: relative
 
+    @include mixins.tablet()
+        @include mixins.container-tablet()
+        flex-direction: column
+
+    @include mixins.mobile()
+        @include mixins.container-mobile()
+
     &__principal
         width: 680px
         margin-right: 15px
+
+        @include mixins.tablet()
+            margin-right: 0
+            width: 100%
     
     &__formulario
         display: flex
@@ -53,6 +70,9 @@ body
     &__entrada
         height: 420px
 
+        @include mixins.tablet()
+            height: max-content
+
         &__texto
             width: 90%
             height: 90%
@@ -60,6 +80,10 @@ body
             font-size: 2rem
             background-color: variables.$bg-color
             resize: none
+
+            @include mixins.tablet()
+                width: 100%
+                height: 100%
 
             &:focus
                 outline-color: variables.$dark-blue-200
@@ -90,6 +114,13 @@ body
         display: flex
         justify-content: space-between
         padding: 0 5px
+
+        @include mixins.tablet()
+            justify-content: space-evenly
+
+        @include mixins.mobile()
+            flex-direction: column
+            margin: 0 auto
     
     .btn
         width: 328px
@@ -98,18 +129,25 @@ body
         border-radius: 24px
         cursor: pointer
 
+        @include mixins.mobile()
+            width: 285px
+
         &:focus
             outline: none
     
     &__btn
         &__principal
             @include mixins.btnPrimario()
+            @include mixins.mobile()
+                margin-bottom: 30px
         
         &__segundario
             @include mixins.btnSegundario()
         
         &__lateral
             @include mixins.btnSegundario()
+            @include mixins.mobile()
+                width: 215px !important
 
     &__lateral
         width: 330px
@@ -121,6 +159,16 @@ body
         margin: 0 auto
         transform: translateY(-30px)
 
+        @include mixins.tablet()
+            transform: none
+            margin: 20px auto
+            width: 80%
+            padding: 20px 0
+
+        @include mixins.mobile()
+            padding: 10px
+            width: 90%
+
     &__resposta
         text-align: center
         line-height: 150%
@@ -129,9 +177,17 @@ body
             display: flex
             flex-direction: column
             height: 650px
+            @include mixins.tablet()
+                height: max-content
 
             &__img
                 margin-bottom: 20px
+                @include mixins.tablet()
+                    width: 330px
+                    margin: 0 auto
+
+                @include mixins.mobile()
+                    width: 250px
             
             &__titulo
                 font-weight: bold
@@ -148,6 +204,15 @@ body
 
 .footer
     @include mixins.container()
+
+    @include mixins.tablet()
+        @include mixins.container-tablet()
+
+    @include mixins.mobile()
+        @include mixins.container-mobile()
+        font-size: 1rem
+        padding: 10px
+
     margin-top: 2vh
     padding: 5px 0
     text-align: center

@@ -5,6 +5,16 @@
     padding: 1.5rem 0
     margin: 0 auto
 
+@mixin container-tablet()
+    max-width: variables.$container-width-tablet
+    padding: 1.5rem 0
+    margin: auto 20px
+
+@mixin container-mobile()
+    max-width: variables.$container-width-mobile
+    padding: 1.5rem 0
+    margin: auto 10px
+
 @mixin btnPrimario()
     border: none
     color: white
@@ -14,3 +24,11 @@
     border: 1px solid variables.$dark-blue-300
     background-color: variables.$light-gray
     color: variables.$dark-blue-300
+
+@mixin mobile()
+    @media ( max-width: 425px )
+        @content
+
+@mixin tablet()
+    @media ( max-width: 768px )
+        @content
