@@ -13,6 +13,24 @@ body .mostrar {
 body .ocultar {
   display: none;
 }
+body .erro {
+  color: red;
+}
+body .erro::before {
+  content: "❌Erro: ";
+}
+body .aviso {
+  color: #e0b90b;
+}
+body .aviso::before {
+  content: "⚠️Aviso: ";
+}
+body .sucesso {
+  color: green;
+}
+body .sucesso::before {
+  content: "Sucesso: ";
+}
 
 ::-webkit-scrollbar {
   margin: 0 5px;
@@ -52,6 +70,21 @@ body .ocultar {
     margin: auto 10px;
   }
 }
+.header__notificacoes {
+  display: none;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 20vh;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .header__notificacoes {
+    text-align: center;
+    margin-left: 0;
+  }
+}
 
 .main {
   max-width: 1170px;
@@ -75,6 +108,7 @@ body .ocultar {
     max-width: 425px;
     padding: 1.5rem 0;
     margin: auto 10px;
+    padding-top: 0;
   }
 }
 .main__principal {

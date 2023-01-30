@@ -46,9 +46,9 @@ function descriptografar() {
 
 	if (entradaTexto) {
 		let entradaTextoValue = entradaTexto.value;
-		var expressao = /ai|enter|imes|ober|ufat/gi;
+		let expressao = /ai|enter|imes|ober|ufat/gi;
 
-		var textoDescriptografado = entradaTextoValue
+		let textoDescriptografado = entradaTextoValue
 			.trim()
 			.replace(expressao, (match) => {
 				switch (match) {
@@ -73,40 +73,8 @@ function descriptografar() {
 			});
 
 		mostrarResultado(textoDescriptografado);
-	}
-
-	var texto = document.querySelector('#texto');
-
-	if (validarTexto(texto, texto.value.trim())) {
-		var expressao = /ai|enter|imes|ober|ufat/gi;
-
-		var textoDescriptografado = texto.value.replace(expressao, (match) => {
-			switch (match) {
-				case 'ai':
-					match = 'a';
-					break;
-				case 'enter':
-					match = 'e';
-					break;
-				case 'imes':
-					match = 'i';
-					break;
-				case 'ober':
-					match = 'o';
-					break;
-				case 'ufat':
-					match = 'u';
-					break;
-			}
-
-			return match;
-		});
-
-		mostrarResultado(textoDescriptografado);
 	} else {
-		document.querySelector('#texto-criptografado').style.display = 'none';
-		document.querySelector('#texto-criptografado').innerHTML = '';
-		document.querySelector('#padrao').style.display = 'block';
+		limparResposta();
 	}
 }
 
@@ -137,7 +105,7 @@ function mostrarResultado(texto) {
  */
 function validarTexto(input, value) {
 	if (value == '') {
-		inserirAviso('Por favor, informe algum texto');
+		mostrarErro('Por favor, informe algum texto');
 		input.focus();
 		return false;
 	}
@@ -145,11 +113,11 @@ function validarTexto(input, value) {
 		// /[A-Z-À-Ú-à-ú]|[0-9]|[;´`^~@!#$%^&*()/\\-_\[\]\{\}ºª+§]/ -> Expressão regular (RegExp) para os caracteres não aceitos pelo decodificador
 		// .test(value) -> Testa/Compara o valor (string) da variável "value" com a RegExp e caso exista um caractere inválido na string verificada informa
 		// o usuário
-		inserirAviso('Por favor, informe um texto válido');
+		mostrarErro('Por favor, informe um texto válido');
 		input.focus();
 		return false; //caso em que o texto é invalido
 	}
-	limparAviso();
+	limparNotificacoes();
 	return true; //caso em que o texto é valido
 }
 
@@ -160,7 +128,9 @@ async function copiar() {
 	let respostaTexto = getElementById('resposta-texto').textContent;
 
 	await navigator.clipboard.writeText(respostaTexto);
-	print('Texto copiado com sucesso!');
+	//print('Texto copiado com sucesso!');
+
+	mostrarSucesso('Texto copiado com sucesso!')
 
 	limparResposta();
 	limparEntrada();
@@ -184,12 +154,22 @@ function limparResposta() {
 }
 
 /**
- * Apaga os avisos da tela
+ * Apaga as notificacoes
  */
-function limparAviso() {
-	const aviso = getElementById('informacoes-aviso');
-	aviso.textContent = '';
-	aviso.classList.remove('mostrar');
+function limparNotificacoes() {
+	const areaDeNotificacoes = getElementById('notificacoes');
+	areaDeNotificacoes.textContent = '';
+	areaDeNotificacoes.classList.remove('mostrar');
+
+	if (areaDeNotificacoes.classList.contains('erro')) {
+		areaDeNotificacoes.classList.remove('erro');
+	}
+	if (areaDeNotificacoes.classList.contains('aviso')) {
+		areaDeNotificacoes.classList.remove('aviso');
+	}
+	if (areaDeNotificacoes.classList.contains('sucesso')) {
+		areaDeNotificacoes.classList.remove('sucesso');
+	}
 }
 
 /**
@@ -203,13 +183,43 @@ function limparEntrada() {
 
 /**
  *
+ * @param {*} msg Mensagem que será mostrada no erro
+ */
+function mostrarErro(msg) {
+	limparNotificacoes();
+	const areaDeNotificacoes = getElementById('notificacoes');
+	if (msg) {
+		areaDeNotificacoes.textContent = msg;
+		areaDeNotificacoes.classList.add('mostrar');
+		areaDeNotificacoes.classList.add('erro');
+	}
+}
+
+/**
+ *
  * @param {*} msg Mensagem que será mostrada no aviso
  */
-function inserirAviso(msg) {
-	const aviso = getElementById('informacoes-aviso');
+function mostrarAviso(msg) {
+	limparNotificacoes();
+	const areaDeNotificacoes = getElementById('notificacoes');
 	if (msg) {
-		aviso.textContent = msg;
-		aviso.classList.add('mostrar');
+		areaDeNotificacoes.textContent = msg;
+		areaDeNotificacoes.classList.add('mostrar');
+		areaDeNotificacoes.classList.add('aviso');
+	}
+}
+
+/**
+ *
+ * @param {*} msg Mensagem que será mostrada no aviso
+ */
+function mostrarSucesso(msg) {
+	limparNotificacoes();
+	const areaDeNotificacoes = getElementById('notificacoes');
+	if (msg) {
+		areaDeNotificacoes.textContent = msg;
+		areaDeNotificacoes.classList.add('mostrar');
+		areaDeNotificacoes.classList.add('sucesso');
 	}
 }
 
@@ -247,11 +257,11 @@ const btnCriptografar = getElementById('btn-criptografar'); //document.querySele
 
 const btnDescriptografar = getElementById('btn-descriptografar'); //document.querySelector('#btn-descriptografar');
 
-const informacoesAviso = getElementById('informacoes-aviso');
+const informacoesAviso = getElementById('notificacoes');
 
 btnCriptografar.addEventListener('click', criptografar);
 
 btnDescriptografar.addEventListener('click', descriptografar);
 
-informacoesAviso.addEventListener('click', limparAviso);
+informacoesAviso.addEventListener('click', limparNotificacoes);
 informacoesAviso.addEventListener('click', limparResposta);

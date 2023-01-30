@@ -14,6 +14,24 @@ body
     .ocultar
         display: none
 
+    .erro
+        color: red
+        
+        &::before
+            content: '\274C Erro: '
+    
+    .aviso
+        color: #e0b90b
+        
+        &::before
+            content: '\26A0 \FE0F Aviso: '
+
+    .sucesso
+        color: green
+        
+        &::before
+            content: 'Sucesso: '
+
 ::-webkit-scrollbar
     margin: 0 5px
     width: 6px
@@ -37,9 +55,24 @@ body
 
     @include mixins.tablet()
         @include mixins.container-tablet()
+        // padding-bottom: 1rem
 
     @include mixins.mobile()
         @include mixins.container-mobile()
+        // padding-bottom: 1rem
+
+    &__notificacoes
+            display: none
+            margin-bottom: 1rem
+            margin-top: 1rem
+            margin-left: 20vh
+            font-family: variables.$font-family-code
+            font-size: 1.2rem
+            font-weight: bold
+
+            @include mixins.tablet()
+                text-align: center
+                margin-left: 0
 
 .main
     @include mixins.container()
@@ -51,9 +84,11 @@ body
     @include mixins.tablet()
         @include mixins.container-tablet()
         flex-direction: column
+        // padding-top: 0
 
     @include mixins.mobile()
         @include mixins.container-mobile()
+        padding-top: 0
 
     &__principal
         width: 680px
