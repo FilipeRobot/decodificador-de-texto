@@ -142,6 +142,9 @@ function validarTexto(input, value) {
 		return false;
 	}
 	if (/[A-Z-À-Ú-à-ú]|[0-9]|[;´`^~@!#$%^&*()/\\-_\[\]\{\}ºª+§]/.test(value)) {
+		// /[A-Z-À-Ú-à-ú]|[0-9]|[;´`^~@!#$%^&*()/\\-_\[\]\{\}ºª+§]/ -> Expressão regular (RegExp) para os caracteres não aceitos pelo decodificador
+		// .test(value) -> Testa/Compara o valor (string) da variável "value" com a RegExp e caso exista um caractere inválido na string verificada informa
+		// o usuário
 		inserirAviso('Por favor, informe um texto válido');
 		input.focus();
 		return false; //caso em que o texto é invalido
@@ -223,6 +226,14 @@ function getEntradaTexto() {
 	}
 }
 
+/**
+ * Essa função simplifica a chamada do comando
+ *
+ * document.getElementById('string com o id')
+ * 
+ * @param {*} id informar o ID do elemento HTML que deve ser retornado
+ * @returns Elemento HTML ou Null caso não exista um elemento com a ID informada
+ */
 function getElementById(id) {
 	return document.getElementById(id);
 }
